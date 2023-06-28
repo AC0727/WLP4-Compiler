@@ -1,0 +1,148 @@
+.CFG
+procedures procedure procedures
+procedures main
+procedure INT ID LPAREN params RPAREN LBRACE dcls statements RETURN expr SEMI RBRACE
+main INT WAIN LPAREN dcl COMMA dcl RPAREN LBRACE dcls statements RETURN expr SEMI RBRACE
+params .EMPTY
+params paramlist
+paramlist dcl
+paramlist dcl COMMA paramlist
+type INT
+type INT STAR
+dcls .EMPTY
+dcls dcls dcl BECOMES NUM SEMI
+dcls dcls dcl BECOMES NULL SEMI
+dcl type ID
+statements .EMPTY
+statements statements statement
+statement lvalue BECOMES expr SEMI
+statement IF LPAREN test RPAREN LBRACE statements RBRACE ELSE LBRACE statements RBRACE
+statement WHILE LPAREN test RPAREN LBRACE statements RBRACE
+statement PRINTLN LPAREN expr RPAREN SEMI
+statement DELETE LBRACK RBRACK expr SEMI
+test expr EQ expr
+test expr NE expr
+test expr LT expr
+test expr LE expr
+test expr GE expr
+test expr GT expr
+expr term
+expr expr PLUS term
+expr expr MINUS term
+term factor
+term term STAR factor
+term term SLASH factor
+term term PCT factor
+factor ID
+factor NUM
+factor NULL
+factor LPAREN expr RPAREN
+factor AMP lvalue
+factor STAR factor
+factor NEW INT LBRACK expr RBRACK
+factor ID LPAREN RPAREN
+factor ID LPAREN arglist RPAREN
+arglist expr
+arglist expr COMMA arglist
+lvalue ID
+lvalue STAR factor
+lvalue LPAREN lvalue RPAREN
+.INPUT
+INT WAIN LPAREN INT STAR ID COMMA INT ID RPAREN LBRACE
+STAR ID BECOMES NUM SEMI
+RETURN LPAREN NUM PLUS NUM RPAREN SLASH NUM SEMI
+RBRACE
+.ACTIONS
+shift
+shift
+shift
+shift
+shift
+print
+reduce 9
+print
+shift
+print
+reduce 13
+print
+shift
+shift
+print
+reduce 8
+print
+shift
+print
+reduce 13
+print
+shift
+shift
+print
+reduce 10
+print
+reduce 14
+print
+shift
+shift
+print
+reduce 34
+print
+reduce 46
+print
+shift
+shift
+print
+reduce 35
+print
+reduce 30
+print
+reduce 27
+print
+shift
+print
+reduce 16
+print
+reduce 15
+print
+shift
+shift
+shift
+print
+reduce 35
+print
+reduce 30
+print
+reduce 27
+print
+shift
+shift
+print
+reduce 35
+print
+reduce 30
+print
+reduce 28
+print
+shift
+print
+reduce 37
+print
+reduce 30
+print
+shift
+shift
+print
+reduce 35
+print
+reduce 32
+print
+reduce 27
+print
+shift
+shift
+print
+reduce 3
+print
+reduce 1
+print
+.END
+

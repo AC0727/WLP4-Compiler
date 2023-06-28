@@ -1,0 +1,90 @@
+int wain(int* arr, int length) {
+    int index = 1;
+    int commoncount = 1;
+    int currcount = 1;
+    int mostcommon = 0;
+    int pastint = 0;
+    int currint = 0;
+    int absoluteone = 0;
+    int absolutetwo = 0;
+    int negativeone = 0;
+
+    negativeone = 0 - 1;
+    mostcommon = *(arr + 0);
+    pastint = *(arr + 0);
+
+    while (index < length) {
+        currint = *(arr + index);
+        if (currint != pastint) {
+            if (currcount > commoncount) {
+                mostcommon = pastint;
+                commoncount = currcount;
+            } else {
+                if (currcount == commoncount) {
+                    if (mostcommon < 0) {
+                        absoluteone = negativeone * mostcommon;
+                    } else {
+                        absoluteone = mostcommon;
+                    }
+
+                    if (pastint < 0) {
+                        absolutetwo = negativeone * pastint;
+                    } else {
+                        absolutetwo = pastint;
+                    }
+
+                    if (absolutetwo < absoluteone) {
+                        mostcommon = pastint;
+                        commoncount = currcount;
+                    } else {}
+
+                    if (absoluteone == absolutetwo) {
+                        if (pastint < 0) {
+                            mostcommon = pastint;
+                            commoncount = currcount;
+                        } else {}
+                    } else {}
+                } else {}
+            }
+            currcount = 0;
+        } else {}
+        currcount = currcount + 1;
+        pastint = currint;
+        index = index + 1;
+    }
+
+    if (currcount > commoncount) {
+        mostcommon = pastint;
+        commoncount = currcount;
+    } else {
+        if (currcount == commoncount) {
+            if (mostcommon < 0) {
+                absoluteone = negativeone * mostcommon;
+            } else {
+                absoluteone = mostcommon;
+            }
+
+            if (pastint < 0) {
+                absolutetwo = negativeone * pastint;
+            } else {
+                absolutetwo = pastint;
+            }
+
+            if (absolutetwo < absoluteone) {
+                mostcommon = pastint;
+            } else {}
+
+            if (absoluteone == absolutetwo) {
+                if (pastint < 0) {
+                    mostcommon = pastint;
+                } else {}
+            } else {}
+        } else {}
+    }
+    return mostcommon;
+}
+
+
+
+
+
